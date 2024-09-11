@@ -1,0 +1,18 @@
+services:
+  aerostack2:
+    image: aerostack2_roscon
+    build:
+      context: ./docker/
+      dockerfile: Dockerfile
+    container_name: aerostack2_roscon
+    environment:
+      DISPLAY: $DISPLAY
+    privileged: true
+    volumes:
+      # X11
+      - ~/.Xauthority:/root/.Xauthority
+      # 
+      - /dev/:/dev
+      - .:/root/demo_ROSConES24/
+    network_mode: "host"
+    command: tail -f /dev/null
