@@ -1,4 +1,4 @@
-FROM aerostack2/nightly-humble:latest 
+FROM aerostack2/humble:1.1.2 
 
 # Clone demo project
 WORKDIR /root/
