@@ -36,15 +36,17 @@ __license__ = 'BSD-3-Clause'
 
 from time import sleep
 
-from as2_python_api.drone_interface_teleop import DroneInterfaceTeleop
+from as2_python_api.drone_interface_base import DroneInterfaceBase
+from as2_python_api.modules.motion_reference_handler_module import MotionReferenceHandlerModule
 import rclpy
 
 rclpy.init()
 
-uav = DroneInterfaceTeleop(
+uav = DroneInterfaceBase(
     drone_id='drone0',
     use_sim_time=True,
     verbose=True)
+uav.motion_ref_handler = MotionReferenceHandlerModule(drone=uav)
 
 position = [1.0, 0.0, 1.0]
 max_speed = 0.5
