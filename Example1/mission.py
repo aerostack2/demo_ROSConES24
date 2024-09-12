@@ -71,11 +71,14 @@ while time < 5:
         speed, twist_frame_id='earth', yaw_speed=0.0)
     sleep(1)
     time += 1
-uav.motion_ref_handler.hover()
 
 print('Hovering')
-uav.motion_ref_handler.hover()
-sleep(4)
+time = 0
+while time < 5:
+    uav.motion_ref_handler.speed.send_speed_command_with_yaw_speed(
+        [0.0, 0.0, 0.0], twist_frame_id='earth', yaw_speed=0.0)
+    sleep(1)
+    time += 1
 
 uav.shutdown()
 rclpy.shutdown()
