@@ -1,6 +1,5 @@
-# Project Gazebo
-
-Please refer to https://aerostack2.github.io/_02_examples/gazebo/project_gazebo/index.html for more information.
+# Motion Reference Control example
+Please refer to default [project gazebo](https://aerostack2.github.io/_02_examples/gazebo/project_gazebo/index.html) for more information.
 
 ## Installation
 
