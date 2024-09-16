@@ -32,7 +32,7 @@ shift $((OPTIND -1))
 ## DEFAULTS
 launch_keyboard_teleop=${launch_keyboard_teleop:="false"}
 
-simulation_config="world.json"
+simulation_config="world.yaml"
 drone="drone0"
 
 tmuxinator start -p aerostack2.yml \
