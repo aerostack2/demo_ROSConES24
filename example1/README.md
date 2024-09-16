@@ -22,7 +22,7 @@ ros2 launch as2_state_estimator state_estimator_launch.py namespace:=drone0 conf
 
 - Motion controller:
 ```bash
-ros2 launch as2_motion_controller controller_launch.py namespace:=drone0 config_file:=config.yaml plugin_name:=pid_speed_controller plugin_config_file:=pid_speed_controller.yaml
+ros2 launch as2_motion_controller controller_launch.py namespace:=drone0 config_file:=config.yaml
 ```
 
 ### 3. Move the drone
