@@ -40,6 +40,9 @@ from as2_python_api.drone_interface_base import DroneInterfaceBase
 from as2_python_api.modules.motion_reference_handler_module import MotionReferenceHandlerModule
 import rclpy
 
+YAW_SPEED = 0.0
+MAX_SPEED = 0.5
+
 rclpy.init()
 
 uav = DroneInterfaceBase(
@@ -48,37 +51,33 @@ uav = DroneInterfaceBase(
     verbose=True)
 uav.motion_ref_handler = MotionReferenceHandlerModule(drone=uav)
 
-position = [1.0, 0.0, 1.0]
-max_speed = 0.5
-yaw_speed = 0.0
-
+position = [1.0, 0.0, 1.5]
 print('Go to point: ', position)
 time = 0
 while time < 5:
     uav.motion_ref_handler.position.send_position_command_with_yaw_speed(
-        position, max_speed, pose_frame_id='earth', twist_frame_id='earth', yaw_speed=0.0)
+        position, MAX_SPEED, pose_frame_id='earth', twist_frame_id='earth', yaw_speed=YAW_SPEED)
     sleep(1)
     time += 1
-uav.motion_ref_handler.hover()
 
-print('Hovering')
-uav.motion_ref_handler.hover()
-sleep(4)
+sleep(2)
 
 speed = [-0.5, 0.0, 0.0]
-print('Move at speed: ', max_speed)
+print('Move at speed: ', speed)
 time = 0
-while time < 5:
+while time < 2:
     uav.motion_ref_handler.speed.send_speed_command_with_yaw_speed(
-        speed, twist_frame_id='earth', yaw_speed=0.0)
+        speed, twist_frame_id='earth', yaw_speed=YAW_SPEED)
     sleep(1)
     time += 1
 
 print('Hovering')
+speed = [0.0, 0.0, 0.0]
+print('Move at speed: ', speed)
 time = 0
-while time < 5:
+while time < 2:
     uav.motion_ref_handler.speed.send_speed_command_with_yaw_speed(
-        [0.0, 0.0, 0.0], twist_frame_id='earth', yaw_speed=0.0)
+        speed, twist_frame_id='earth', yaw_speed=YAW_SPEED)
     sleep(1)
     time += 1
 
