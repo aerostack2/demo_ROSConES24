@@ -2,7 +2,6 @@ world_name: "empty"
 drones:
   - model_type: "quadrotor_base"
     model_name: "drone0"
-    flight_time: 60
     xyz:
       - 0.0
       - 0.0
