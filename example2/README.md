@@ -3,7 +3,7 @@
 ### 1. Launch Aerostack using tmuxinator
 
 ```bash
-tmuxinator start -p aerostack2.yml simulation_config=world.yaml
+tmuxinator start -p aerostack2.yml
 ```
 
 You can close tmux session using `stop.bash` script or manually killing tmux session (`tmux kill-session`).

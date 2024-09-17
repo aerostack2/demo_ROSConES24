@@ -1,7 +1,3 @@
-<%
-# Input parameters
-%>
-
 name: drone0
 attach: true
 root: ./
