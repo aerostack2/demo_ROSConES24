@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Make a tmux list of sessions to be killed
-tmux_session_list=("drone0" "drone1" "drone2" "ground_station")
+tmux_session_list=("aerostack2" "ground_station")
 
 # Send Ctrl+C signal to each window of each session
 for session in "${tmux_session_list[@]}"; do

@@ -21,7 +21,7 @@ tmuxinator start -p aerostack2_crazyflie.yaml drone_namespace=drone0,drone1,dron
 For monitoring the drone status using RViz and send commands to it using Aerostack2 Keyboard Teleoperation, you can run the following command:
 
 ```bash
-tmuxinator start -p ground_station.yaml use_sim_time:=true
+tmuxinator start -p ground_station.yaml drone_namespace=drone0,drone1,drone2 use_sim_time=true
 ```
 
 > *Note: If not using Gazebo, set use_sim_time to False.*
