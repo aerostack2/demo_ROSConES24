@@ -4,17 +4,17 @@ For launching the demo using **Crazyflie**, we automated the process using tmuxi
 
 - Launch leader drone:
 ```
-tmuxinator start -p tmuxinator/crazyflie_launch.yaml namespace=drone0
+tmuxinator start -p aerostack2_crazyflie.yaml drone_namespace=drone0
 ```
 
 - Launch follower drone 1:
 ```
-tmuxinator start -p tmuxinator/crazyflie_launch.yaml namespace=drone1
+tmuxinator start -p aerostack2_crazyflie.yaml drone_namespace=drone1
 ```
 
 - Launch follower drone 2:
 ```
-tmuxinator start -p tmuxinator/crazyflie_launch.yaml namespace=drone2
+tmuxinator start -p aerostack2_crazyflie.yaml drone_namespace=drone2
 ```
 
 ## Launching Aerostack2 components for simulation

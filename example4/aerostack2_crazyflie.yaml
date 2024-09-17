@@ -11,7 +11,7 @@ windows:
   - platform:
       layout: tiled
       panes:
-      <%- if namespace == "drone0" %>
+      <%- if drone_namespace == "drone0" %>
         - ros2 launch as2_platform_crazyflie crazyflie_swarm_launch.py
               swarm_config_file:=configs/config_cf.yaml
       <%- end %>
