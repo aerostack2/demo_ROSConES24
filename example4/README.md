@@ -1,4 +1,4 @@
-# Example 3: Plan execution control of a Crazyflie using aerostack2 behaviors
+# Example 4: Drone-convoy example
 
 ### 1A. Launching Aerostack2 components for simulation
 

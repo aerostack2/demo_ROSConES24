@@ -52,4 +52,5 @@ docker exec -it aerostack2_roscon /bin/bash
 ### Examples
 1. [Motion reference control example](example1/README.md)
 2. [Plan execution control example](example2/README.md)
-3. [Paso a dron real](example3/README.md)
+3. [From sim to real, using Crazyflies](example3/README.md)
+4. [Drone-convoy example](example4/README.md)
