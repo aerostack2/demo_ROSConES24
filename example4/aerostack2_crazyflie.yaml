@@ -1,0 +1,32 @@
+<%
+# Input parameters
+drone_namespace     = @settings["drone_namespace"]
+%>
+
+name: <%= drone_namespace %>
+attach: true
+root: ./
+startup_window: platform
+windows:
+  - platform:
+      layout: tiled
+      panes:
+      <%- if namespace == "drone0" %>
+        - ros2 launch as2_platform_crazyflie crazyflie_swarm_launch.py
+              swarm_config_file:=configs/config_cf.yaml
+      <%- end %>
+  - BRF:
+      layout:
+      panes:
+        - ros2 launch as2_state_estimator state_estimator_launch.py
+            namespace:=<%= drone_namespace %>
+            config_file:=configs/config_cf.yaml
+        - ros2 launch as2_motion_controller controller_launch.py
+            namespace:=<%= drone_namespace %>
+            config_file:=configs/config_cf.yaml
+  - behaviors:
+      layout:
+      panes:
+        - ros2 launch as2_behaviors_motion motion_behaviors_launch.py
+            namespace:=<%= drone_namespace %>
+            config_file:=configs/config_cf.yaml
