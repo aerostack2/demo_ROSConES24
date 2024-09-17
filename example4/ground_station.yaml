@@ -28,7 +28,7 @@ windows:
             use_sim_time:=<%= use_sim_time %>
         - ros2 launch as2_visualization swarm_viz.launch.py
             namespace_list:=<%= drone_namespace %>
-            rviz_config:=rviz2_config.rviz
+            rviz_config:=configs/rviz2_config.rviz
             drone_model:=crazyflie
   - mission:
       layout:
