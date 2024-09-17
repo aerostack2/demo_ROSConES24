@@ -1,0 +1,51 @@
+<%
+# Input parameters
+drone_namespace     = @settings["drone_namespace"]
+simulation_config   = @settings["simulation_config"]
+%>
+
+name: <%= drone_namespace %>
+attach: true
+root: ./
+startup_window: mission
+windows:
+  - platform:
+      layout: tiled
+      panes:
+        - ros2 launch as2_gazebo_assets launch_simulation.py
+            simulation_config_file:=<%= simulation_config %>
+        - ros2 launch as2_platform_gazebo platform_gazebo_launch.py
+            namespace:=<%= drone_namespace %>
+            platform_config_file:=config.yaml
+            simulation_config_file:=<%= simulation_config %>
+  - BRF:
+      layout:
+      panes:
+        - ros2 launch as2_state_estimator state_estimator_launch.py
+            namespace:=<%= drone_namespace %>
+            config_file:=config.yaml
+        - ros2 launch as2_motion_controller controller_launch.py
+            namespace:=<%= drone_namespace %>
+            config_file:=config.yaml
+  - behaviors:
+      layout:
+      panes:
+        - ros2 launch as2_behaviors_motion motion_behaviors_launch.py
+            namespace:=<%= drone_namespace %>
+            config_file:=config.yaml
+  - mission:
+      layout:
+      panes:
+        - ros2 run as2_alphanumeric_viewer as2_alphanumeric_viewer_node
+            --ros-args -r  __ns:=/<%= drone_namespace %>
+        - tail -n 40 mission.py
+  - ground_station:
+      layout:
+      panes:
+        - ros2 launch as2_keyboard_teleoperation as2_keyboard_teleoperation_launch.py
+            namespace:=<%= drone_namespace %>
+            use_sim_time:=true
+        - ros2 launch as2_visualization swarm_viz.launch.py
+            namespace_list:=<%= drone_namespace %>
+            rviz_config:=rviz2_config.rviz
+            drone_model:=quadrotor_base

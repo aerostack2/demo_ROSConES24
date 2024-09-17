@@ -1,0 +1,16 @@
+world_name: "empty"
+drones:
+  - model_type: "quadrotor_base"
+    model_name: "drone0"
+    xyz:
+      - 0.0
+      - 0.0
+      - 0.3
+    # payload:
+    #   - model_type: "gps"
+    #     model_name: "gps"
+    #   - model_type: "gimbal_speed"
+    #     model_name: "gimbal"
+    #     payload:
+    #       model_type: "hd_camera"
+    #       model_name: "camera"
