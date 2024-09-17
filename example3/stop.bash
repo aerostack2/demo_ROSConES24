@@ -25,6 +25,13 @@ for session in "${tmux_session_list[@]}"; do
   fi
 done
 
+# Because sometimes it doesn't close well
+# Kill gazebo
+pkill -9 -f "gazebo" < /dev/null
+
+# Kill gazebo bridges
+pkill -9 -f "ros_gz_bridge"
+
 # Kill the current tmux session, if in a tmux session
 if [[ -n "$TMUX" ]]; then
   tmux kill-session -t "$current_session" 2>/dev/null
