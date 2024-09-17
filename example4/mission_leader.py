@@ -49,8 +49,8 @@ SD_MAX_X = 0.7  # Maximum square dimension for the mission (m)
 SD_MIN_Y = -0.7  # Minimum square dimension for the mission (m)
 SD_MAX_Y = 0.4  # Maximum square dimension for the mission (m)
 
-LOWEST_HEIGHT = 1.0  # Lowest height for the mission (m)
-HIGHEST_HEIGHT = 1.5  # Highest height for the mission (m)
+LOWEST_HEIGHT = 0.75  # Lowest height for the mission (m)
+HIGHEST_HEIGHT = 1.25  # Highest height for the mission (m)
 
 
 def wait_to_takeoff(drone_interface: DroneInterfaceBase):
@@ -137,11 +137,10 @@ if __name__ == '__main__':
                         action='store_true',
                         default=False,
                         help='Enable verbose output')
-    parser.add_argument('-r','--use_sim_time',
+    parser.add_argument('-r', '--use_sim_time',
                         action='store_false',
                         default=True,
                         help='Use simulation time')
-                        
 
     args = parser.parse_args()
     leader_namespace = args.leader_namespace
