@@ -16,10 +16,7 @@ To start using this project, please go to the root folder of the project.
 ### 1. Launch Aerostack using tmuxinator
 
 ```bash
-tmuxinator start -p aerostack2.yml \
-    drone_namespace="drone0" \
-    simulation_config="world.yaml"
-tmux attach
+tmuxinator start -p aerostack2.yml drone_namespace=drone0 simulation_config=world.yaml
 ```
 
 Or use `launch_as2.bash` script. You can close tmux session using `stop.bash` script or manually killing tmux session (`tmux kill-session`).
