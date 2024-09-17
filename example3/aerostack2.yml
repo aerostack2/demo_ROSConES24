@@ -1,10 +1,4 @@
-<%
-# Input parameters
-drone_namespace     = @settings["drone_namespace"]
-simulation_config   = @settings["simulation_config"]
-%>
-
-name: <%= drone_namespace %>
+name: drone0
 attach: true
 root: ./
 startup_window: mission
@@ -18,30 +12,30 @@ windows:
       layout:
       panes:
         - ros2 launch as2_state_estimator state_estimator_launch.py
-            namespace:=<%= drone_namespace %>
+            namespace:=drone0
             config_file:=config.yaml
         - ros2 launch as2_motion_controller controller_launch.py
-            namespace:=<%= drone_namespace %>
+            namespace:=drone0
             config_file:=config.yaml
   - behaviors:
       layout:
       panes:
         - ros2 launch as2_behaviors_motion motion_behaviors_launch.py
-            namespace:=<%= drone_namespace %>
+            namespace:=drone0
             config_file:=config.yaml
   - mission:
       layout:
       panes:
         - ros2 run as2_alphanumeric_viewer as2_alphanumeric_viewer_node
-            --ros-args -r  __ns:=/<%= drone_namespace %>
+            --ros-args -r  __ns:=/drone0
         - tail -n 40 mission.py
   - ground_station:
       layout:
       panes:
         - ros2 launch as2_keyboard_teleoperation as2_keyboard_teleoperation_launch.py
-            namespace:=<%= drone_namespace %>
+            namespace:=drone0
             use_sim_time:=false
         - ros2 launch as2_visualization swarm_viz.launch.py
-            namespace_list:=<%= drone_namespace %>
+            namespace_list:=drone0
             rviz_config:=rviz2_config.rviz
             drone_model:=quadrotor_base

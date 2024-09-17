@@ -24,7 +24,9 @@ Install Aerostack2 using apt:
 sudo apt install ros-humble-aerostack2
 ```
 
-> Remind to ``` source /opt/ros/humble/setup.bash ``` on each terminal you are going to use for runnning the demo.
+> Remember to ``` source /opt/ros/humble/setup.bash ``` on each terminal you are going to use for runnning the demo.
+
+> WARNING: Set ``` export ROS_LOCALHOST_ONLY=1 ``` to avoid conflicts with other ROS 2 user.
 
 ### Setup using Docker (RECOMENDED)
 
