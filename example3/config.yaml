@@ -55,4 +55,4 @@
 drone0:
   platform:
     ros__parameters:
-      uri: radio://0/80/2M/E7E7E7E709
+      uri: radio://0/33/2M/E7E7E7AAAA
