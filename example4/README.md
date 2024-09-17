@@ -1,39 +1,19 @@
 ## Launching Aerostack2 components for crazyflie
 
-For launching the demo using **Crazyflie**, we automated the process using tmuxinator. You can run the following commands:
+For launching the demo using **Crazyflie**, we automated the process using tmuxinator. You can run the following command:
 
-- Launch leader drone:
+- Launch aerostack2 drones:
 ```
-tmuxinator start -p aerostack2_crazyflie.yaml drone_namespace=drone0
-```
-
-- Launch follower drone 1:
-```
-tmuxinator start -p aerostack2_crazyflie.yaml drone_namespace=drone1
-```
-
-- Launch follower drone 2:
-```
-tmuxinator start -p aerostack2_crazyflie.yaml drone_namespace=drone2
+tmuxinator start -p aerostack2_crazyflie.yaml drone_namespace=drone0,drone1,drone2
 ```
 
 ## Launching Aerostack2 components for simulation
 
-For launching the demo, usign **Gazebo**, we automated the process using tmuxinator. You can run the following commands:
+For launching the demo, usign **Gazebo**, we automated the process using tmuxinator. You can run the following command:
 
-- Launch leader drone:
+- Launch aerostack2 drones:
 ```
-tmuxinator start -p aerostack2_gazebo.yaml drone_namespace=drone0
-```
-
-- Launch follower drone 1:
-```
-tmuxinator start -p aerostack2_gazebo.yaml drone_namespace=drone1
-```
-
-- Launch follower drone 2:
-```
-tmuxinator start -p aerostack2_gazebo.yaml drone_namespace=drone2
+tmuxinator start -p aerostack2_gazebo.yaml drone_namespace=drone0,drone1,drone2
 ```
 
 ## Launching the ground station utilities
@@ -75,3 +55,8 @@ For stopping the demo you can run the following commands:
 ```
 ./stop.bash
 ```
+
+TODO: 
+- -r de los mission
+- config con los drones address
+- readme, tmuxinator

@@ -3,7 +3,7 @@
 drone_namespace     = @settings["drone_namespace"]
 %>
 
-name: <%= drone_namespace %>
+name: aerostack2
 attach: true
 root: ./
 startup_window: platform
@@ -11,22 +11,24 @@ windows:
   - platform:
       layout: tiled
       panes:
-      <%- if drone_namespace == "drone0" %>
         - ros2 launch as2_platform_crazyflie crazyflie_swarm_launch.py
               swarm_config_file:=configs/config_cf.yaml
-      <%- end %>
   - BRF:
       layout:
       panes:
+        <%- drone_namespace.split(',').each do |drone| %>
         - ros2 launch as2_state_estimator state_estimator_launch.py
-            namespace:=<%= drone_namespace %>
+            namespace:=<%= drone %>
             config_file:=configs/config_cf.yaml
         - ros2 launch as2_motion_controller controller_launch.py
-            namespace:=<%= drone_namespace %>
+            namespace:=<%= drone %>
             config_file:=configs/config_cf.yaml
+        <%- end %>
   - behaviors:
       layout:
       panes:
+        <%- drone_namespace.split(',').each do |drone| %>
         - ros2 launch as2_behaviors_motion motion_behaviors_launch.py
-            namespace:=<%= drone_namespace %>
+            namespace:=<%= drone %>
             config_file:=configs/config_cf.yaml
+        <%- end %>
