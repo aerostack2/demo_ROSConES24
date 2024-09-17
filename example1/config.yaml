@@ -1,0 +1,48 @@
+/**:
+  # Global Parameters
+  ros__parameters:
+    use_sim_time: true
+    tf_timeout_threshold: 0.1
+
+/**:
+  # Basic Robotics Functions
+  platform:
+    ros__parameters:
+      cmd_freq: 50.0  # Hz of platform commands send
+      enable_takeoff_platform: true  # Enable takeoff platform
+      enable_land_platform: true  # Enable land platform
+
+  # State Estimator
+  state_estimator:
+    ros__parameters:
+      use_gazebo_tf: true
+      plugin_name: "ground_truth"
+
+  # Motion Controller
+  controller_manager:
+    ros__parameters:
+      cmd_freq: 50.0 # Hz of controller commands send
+      plugin_name: "pid_speed_controller"
+      # Plugin parameters
+      proportional_limitation: true
+      position_control:
+        antiwindup_cte: 0.5
+        alpha: 0.2
+        kp:
+          x: 1.0
+          y: 1.0
+          z: 1.0
+        kd:
+          x: 0.0
+          y: 0.0
+          z: 0.0
+        ki:
+          x: 0.01
+          y: 0.01
+          z: 0.01
+      yaw_control:
+        antiwindup_cte : 1.0
+        alpha: 0.3
+        kp: 1.0
+        kd: 0.001
+        ki: 0.0

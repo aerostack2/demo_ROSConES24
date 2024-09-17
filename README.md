@@ -43,3 +43,7 @@ docker exec -it aerostack2_roscon /bin/bash
 ```
 
 > For stopping the container run ```xhost - ; docker compose down ``` command on the repo root folder. This will also remove the access to the XServer from the container.
+
+
+### Examples
+1. [Motion reference control example](example1/README.md)
