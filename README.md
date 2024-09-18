@@ -6,6 +6,7 @@ First step is to clone this repository:
 
 ```bash
 git clone https://github.com/aerostack2/demo_ROSConES24.git
+cd demo_ROSConES24
 ```
 
 For this demo we are going to use Aerostack2 v1.1 which is available throught apt.
