@@ -1,0 +1,39 @@
+<%
+# Input parameters
+drone_namespace = @settings["drone_namespace"]
+use_sim_time = @settings["use_sim_time"] == "true"
+
+real_flag = "-r"
+if use_sim_time
+  real_flag = ""
+end
+%>
+
+name: ground_station
+attach: true 
+root: ./
+windows:
+  - alphanumeric_viewer:
+      layout:
+      panes:
+        <%- drone_namespace.split(',').each do |drone| %>
+        - ros2 run as2_alphanumeric_viewer as2_alphanumeric_viewer_node
+            --ros-args -r  __ns:=/<%= drone %>
+        <%- end %>
+  - ground_station:
+      layout:
+      panes:
+        - ros2 launch as2_keyboard_teleoperation as2_keyboard_teleoperation_launch.py
+            namespace:=<%= drone_namespace %>
+            use_sim_time:=<%= use_sim_time %>
+        - ros2 launch as2_visualization swarm_viz.launch.py
+            namespace_list:=<%= drone_namespace %>
+            rviz_config:=configs/rviz2_config.rviz
+            drone_model:=crazyflie
+  - mission:
+      layout:
+      panes:
+        - tail -n 25 mission_leader.py
+        - python3 mission_follower.py -f drone1 -l drone0 <%= real_flag %>
+        - python3 mission_follower.py -f drone2 -l drone1 <%= real_flag %>
+

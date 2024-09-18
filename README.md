@@ -24,7 +24,9 @@ Install Aerostack2 using apt:
 sudo apt install ros-humble-aerostack2
 ```
 
-> Remind to ``` source /opt/ros/humble/setup.bash ``` on each terminal you are going to use for runnning the demo.
+> Remember to ``` source /opt/ros/humble/setup.bash ``` on each terminal you are going to use for runnning the demo.
+
+> WARNING: Set ``` export ROS_LOCALHOST_ONLY=1 ``` to avoid conflicts with other ROS 2 user.
 
 ### Setup using Docker (RECOMENDED)
 
@@ -35,6 +37,8 @@ xhost + # this will enable gazebo visualization
 docker compose up -d # use the -d for keep the container alive in background
 ```
 
+> If your host machine is Windows, change display configuration at `docker-compose.yaml`. See [Issue 4](https://github.com/aerostack2/demo_ROSConES24/issues/4). Kudos to [@dvdmc](https://github.com/dvdmc).
+
 With this there is a running instance of the container with this project mounted in ```/root/demo_ROSConES24```.
 Now you can run as much terminals as you need by running: 
 
@@ -43,3 +47,10 @@ docker exec -it aerostack2_roscon /bin/bash
 ```
 
 > For stopping the container run ```xhost - ; docker compose down ``` command on the repo root folder. This will also remove the access to the XServer from the container.
+
+
+### Examples
+1. [Motion reference control example](example1/README.md)
+2. [Plan execution control example](example2/README.md)
+3. [From sim to real, using Crazyflies](example3/README.md)
+4. [Drone-convoy example](example4/README.md)
