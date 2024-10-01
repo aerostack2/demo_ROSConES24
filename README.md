@@ -1,6 +1,8 @@
 # ROSCon ES'24 Aerostack2 demonstration
 This repository contains the demonstration used in the Aerostack2 Tutorial in ROSCon ES'24.
 
+Slides can be found [online](https://docs.google.com/presentation/d/1hjP8gxDRpMIkM-t7CMRemirabQHAWMtExiB2WkvZuYg/edit#slide=id.g301f70bfd0b_1_3) or in the [slides](slides.pdf).
+
 ## Installation steps
 First step is to clone this repository:
 
